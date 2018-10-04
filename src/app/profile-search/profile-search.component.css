@@ -1,0 +1,23 @@
+.flex-container {
+    display: flex;
+    align-items: stretch;
+  }
+  .searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: grey;
+    width:25%;
+    border-style: outset;
+    border-color: green;
+  }
+  .profile-info{
+    align-content: center;
+    margin-left: 10%;
+  }
+ h1 {
+    border-style: double;
+ }
+ div.searchBox {
+     padding-bottom: 15%;
+ }

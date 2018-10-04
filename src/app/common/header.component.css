@@ -1,0 +1,20 @@
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    background-color: black;
+    border-style: outset;
+    border-color: black;
+}
+div.header {
+    width: 20%;
+    margin-top: 10px;
+    font-size: 3em;
+    text-align: center;
+    flex-shrink: 1;
+}
+div.title {
+    flex-shrink: 1;
+    color: lawngreen;
+}
