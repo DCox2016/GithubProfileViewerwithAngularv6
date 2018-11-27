@@ -24,7 +24,6 @@ function createHttpOptions(packageName: string, refresh = false) {
     return { headers };
 }
 
-
 @Injectable()
 export class PackageSearchService {
   searchResults: Observable<NpmPackageInfo>;
@@ -42,8 +41,12 @@ export class PackageSearchService {
    {
     const options = createHttpOptions(packageName, refresh);
     this.searchResults = this.http.get(searchUrl + packageName, options) as Observable<NpmPackageInfo>;
-    this.searchResults.subscribe(payload => console.log(payload.repos_url));
+    //this.searchResults.subscribe(payload => console.log(payload.repos_url));
+    const repoUrl = this.payload
+    console.log(repoUrl)
     return this.searchResults;
   }
 
 }
+
+

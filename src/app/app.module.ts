@@ -12,6 +12,7 @@ import { RepoPackageComponent } from './repos-list/repos-list.component';
 import { ProfileSorter } from './sort-repos-list/sort-repos-list.component';
 import { HeaderComponent } from './common/header.component';
 import { FooterComponent } from './common/footer.component';
+import { PackageSearchService } from './profile-search/profile-search.service';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FooterComponent } from './common/footer.component';
     HttpClientModule
   ],
   providers: [HttpErrorHandler,
-    MessageService],
+    MessageService,
+    PackageSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
