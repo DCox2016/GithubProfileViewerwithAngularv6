@@ -43,3 +43,4 @@ export class ProfileSearchComponent implements OnInit {
   toggleRefresh() { this.withRefresh = ! this.withRefresh; }
 }
 
+
