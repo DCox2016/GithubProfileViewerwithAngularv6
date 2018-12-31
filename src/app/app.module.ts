@@ -8,11 +8,13 @@ import { MessageService }       from './message.service';
 import { MessagesComponent }    from './messages/messages.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
 import { ProfileImageComponent } from './profile-image/profile-image.component';
-import { RepoPackageComponent } from './repos-list/repos-list.component';
-import { ProfileSorter } from './sort-repos-list/sort-repos-list.component';
 import { HeaderComponent } from './common/header.component';
 import { FooterComponent } from './common/footer.component';
 import { PackageSearchService } from './profile-search/profile-search.service';
+import { UsersRepoComponent } from './repo-list/repo-list.component';
+import { RepoListComponent } from './repo-list/repo-list.services';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 
 
 @NgModule({
@@ -23,8 +25,7 @@ import { PackageSearchService } from './profile-search/profile-search.service';
     HeaderComponent,
     FooterComponent,
     ProfileImageComponent,
-    RepoPackageComponent,
-    ProfileSorter
+    UsersRepoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ import { PackageSearchService } from './profile-search/profile-search.service';
   ],
   providers: [HttpErrorHandler,
     MessageService,
-    PackageSearchService],
+    PackageSearchService,
+    RepoListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

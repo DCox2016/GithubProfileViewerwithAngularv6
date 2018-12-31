@@ -3,17 +3,15 @@
     <div style="order: 1">
         <h1>Profile Search</h1> 
         <input (keyup)="search($event.target.value)" id="name" placeholder="Search"/>
-        <div>
-            <pv-sorter></pv-sorter>
-        </div>
     </div>
         </div>
     <div class="profile-info">          
-    <div style="order: 4">
-        <h2 *ngIf="user">{{user.name}}</h2>
+    <div style="order: 1">
+        <h2 *ngIf="user">User's name: {{user.name}}</h2>
         </div>    
-    <div style="order: 5">
+    <div style="order: 2">
         <profile-image *ngIf="user" [src]="user.avatar_url"></profile-image>
         </div>
     </div>
+    <repo-list></repo-list>
 </div>

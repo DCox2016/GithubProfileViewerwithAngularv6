@@ -1,0 +1,12 @@
+<div class="repo-list">
+<div style="order: 3">
+    <h2 *ngIf="repo">User's Repos:</h2>
+<a *ngFor="let r of repo">
+    <li>
+            <a href="{{r.html_url}}">{{r.name}}</a>
+            <p>Language: {{r.language}}.
+            Stargazers count: {{r.stargazers_count}}</p>
+    </li>
+</a>
+</div>
+</div>

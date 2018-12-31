@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { PackageSearchService } from './profile-search.service';
@@ -16,12 +16,13 @@ import { PackageSearchService } from './profile-search.service';
 export class ProfileSearchComponent implements OnInit {
   withRefresh = false;
   user: any;
+  repoUrl: string;
   private searchText$ = new Subject<string>();
-  
+ 
   search(packageName: string) {
     this.searchText$.next(packageName);
   }
-  
+
 
   ngOnInit() {
     this.searchText$.pipe(
@@ -33,7 +34,7 @@ export class ProfileSearchComponent implements OnInit {
       ).subscribe(
         user => this.user = user
       );
-  }
+    }
 
   constructor(
     private searchService: PackageSearchService) {
