@@ -10,9 +10,8 @@ import { ProfileSearchComponent } from './profile-search/profile-search.componen
 import { ProfileImageComponent } from './profile-image/profile-image.component';
 import { HeaderComponent } from './common/header.component';
 import { FooterComponent } from './common/footer.component';
-import { PackageSearchService } from './profile-search/profile-search.service';
+import { ProfileSearchService } from './profile-search/profile-search.service';
 import { UsersRepoComponent } from './repo-list/repo-list.component';
-import { RepoListComponent } from './repo-list/repo-list.services';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
@@ -33,8 +32,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
   ],
   providers: [HttpErrorHandler,
     MessageService,
-    PackageSearchService,
-    RepoListComponent],
+    ProfileSearchService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

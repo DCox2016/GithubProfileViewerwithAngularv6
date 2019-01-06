@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RepoListComponent } from './repo-list.services';
-import { PackageSearchService, PackageInfo } from '../profile-search/profile-search.service';
-import { RepoList } from '../repoList';
-import { Observable, Subscription } from 'rxjs';
-
+import { Observable, fromEvent } from 'rxjs';
+import { ProfileSearchService } from '../profile-search/profile-search.service';
 
 
 @Component({
@@ -13,22 +10,12 @@ import { Observable, Subscription } from 'rxjs';
 })
 
 export class UsersRepoComponent implements OnInit {
-  repo: RepoList[] = [];
+  repo$: Observable<any>;
 
-  
-  constructor( private repoService : RepoListComponent,
-    private searchService: PackageSearchService){}
+  constructor(private searchService: ProfileSearchService){}
 
-   
-
-  ngOnInit(){
-    this.getRepoList(); 
-}
-  
-
-  getRepoList(): void {
-    this.repoService.getRepoReturn()
-    .subscribe(repo => this.repo = repo);
+  ngOnInit() {
+    
   }
 
 }

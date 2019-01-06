@@ -1,52 +1,59 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { HttpErrorHandler, HandleError } from '../error-handler.service';
-import { map } from 'rxjs/operators';
-import { TouchSequence } from 'selenium-webdriver';
+import { HttpClient} from '@angular/common/http';
+import { BehaviorSubject, Subject, interval, Observable } from 'rxjs';
+import { shareReplay, tap, take, pluck } from 'rxjs/operators';
 
-export interface PackageInfo {
+export interface ProfileInfo {
   login: string
   name: string
   avatar_url: string
   repos_url: string
-  
 }
 
 export const searchUrl = 'https://api.github.com/users/';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'x-refresh':  'true'
-  })
-};
-
-function createHttpOptions(packageName: string, refresh = false) {
-    const headerMap = refresh ? {'x-refresh': 'true'} : {};
-    const headers = new HttpHeaders(headerMap) ;
-    return { headers };
-}
-
 @Injectable({
   providedIn: 'root'
 })
-
-export class PackageSearchService {
-  searchResults: Observable<PackageInfo>;
-  private handleError: HandleError;
-  
-  constructor(
-    private http: HttpClient,
-    httpErrorHandler: HttpErrorHandler
-   ) {
-    this.handleError = httpErrorHandler.createHandleError('Service');
+export class ProfileSearchService {
+  profile: BehaviorSubject<ProfileInfo> = new BehaviorSubject({ login: '', name: '', avatar_url: '', repos_url: '' });
+  repos: BehaviorSubject<any[]> = new BehaviorSubject([]);
+ 
+ 
+  constructor(private http: HttpClient) {
+    this.profile.subscribe(({ repos_url }) => {
+      if (repos_url) {
+        // http request, set repoFetch to return value
+        this.http.get(repos_url).pipe(
+          tap(repos => this.repos.next(repos as any[]))
+        ).subscribe();;
+      }
+    });
   }
 
-  search (packageName: string, refresh = false): Observable<PackageInfo>
-   {
-    const options = createHttpOptions(packageName, refresh);
-    this.searchResults = this.http.get(searchUrl + packageName, options) as Observable<PackageInfo>;
-    return this.searchResults
+  search (packageName: string) {
+    const returnUrl = new Subject<{data: any, url: any}>();
+    const searchReturn = this.http.get(searchUrl + packageName) as Observable<ProfileInfo>;
+    const repoUrl = returnUrl.pipe(
+    tap(_ => ('executed')),
+    pluck('url'),
+    shareReplay(1)
+    );
+    const showUrlSubscriber = repoUrl.subscribe()
+    returnUrl.next({data: {}, url: searchReturn.subscribe(console.log)});
+    return searchReturn;
   }
+
+  /*
+  public userReturn = new Subject();
+
+  setTicks() {
+    const obs$ = interval(1000);
+    const subscription = obs$.pipe(
+      take(4),
+      shareReplay(1)
+    );
+    subscription.subscribe(x => console.log('test' + x));
+}*/
 
 }

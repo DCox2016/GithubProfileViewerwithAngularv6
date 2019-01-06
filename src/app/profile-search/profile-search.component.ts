@@ -1,47 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ProfileSearchService } from './profile-search.service';
+import { fromEvent, Observable, Subject } from 'rxjs';
+import { debounceTime, switchMap } from 'rxjs/operators';
 
-import { Subject, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-
-import { PackageSearchService } from './profile-search.service';
 
 @Component({
   selector: 'profile-search',
   templateUrl: './profile-search.component.html',
-  providers: [ PackageSearchService ],
+  providers: [ ProfileSearchService ],
   styleUrls: ['./profile-search.component.css']
 })
 
 
 export class ProfileSearchComponent implements OnInit {
-  withRefresh = false;
-  user: any;
-  repoUrl: string;
-  private searchText$ = new Subject<string>();
+  @ViewChild('searchInput') searchInput: ElementRef;
+  @ViewChild('subject') subject: any;
+  searchEvent: Observable<any>;
+  repos: Observable<any[]>;
+  user = this.searchService.profile;
  
-  search(packageName: string) {
-    this.searchText$.next(packageName);
-  }
-
+  constructor(private searchService: ProfileSearchService) {}
 
   ngOnInit() {
-    this.searchText$.pipe(
+    this.searchEvent = fromEvent(this.searchInput.nativeElement, 'keyup').pipe(
       debounceTime(1000),
-      distinctUntilChanged(),
-      switchMap(packageName =>
-        this.searchService.search(packageName, this.withRefresh)
-      )
-      ).subscribe(
-        user => this.user = user
-      );
-    }
+      switchMap(() => this.searchService.search(this.searchInput.nativeElement.value))
+    );
+    this.showMe();
+  }
 
-  constructor(
-    private searchService: PackageSearchService) {
-   }
-
-
-  toggleRefresh() { this.withRefresh = ! this.withRefresh; }
+  showMe(){
+    //this.searchService.setTicks();
+  }
+ 
 }
-
-

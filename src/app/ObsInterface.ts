@@ -4,6 +4,3 @@ export class RepoList {
     stargazers_count: number;
     language: string;
 }
-export class RepoUrl {
-    repos_url: string
-}
