@@ -31,29 +31,9 @@ export class ProfileSearchService {
     });
   }
 
-  search (packageName: string) {
-    const returnUrl = new Subject<{data: any, url: any}>();
+  search (packageName: string): Observable<ProfileInfo> {
     const searchReturn = this.http.get(searchUrl + packageName) as Observable<ProfileInfo>;
-    const repoUrl = returnUrl.pipe(
-    tap(_ => ('executed')),
-    pluck('url'),
-    shareReplay(1)
-    );
-    const showUrlSubscriber = repoUrl.subscribe()
-    returnUrl.next({data: {}, url: searchReturn.subscribe(console.log)});
     return searchReturn;
   }
-
-  /*
-  public userReturn = new Subject();
-
-  setTicks() {
-    const obs$ = interval(1000);
-    const subscription = obs$.pipe(
-      take(4),
-      shareReplay(1)
-    );
-    subscription.subscribe(x => console.log('test' + x));
-}*/
 
 }

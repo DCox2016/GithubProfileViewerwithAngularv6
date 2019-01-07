@@ -2,7 +2,7 @@
     display: flex;
     align-items: stretch;
   }
-  .searchBox {
+  .search-box {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -37,7 +37,7 @@
  h1 {
     border-style: double;
  }
- div.searchBox {
+ div.search-box {
      padding-bottom: 15%;
  }
  
