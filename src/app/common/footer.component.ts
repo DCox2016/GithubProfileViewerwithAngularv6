@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'footer',
+  selector: 'ghv-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })

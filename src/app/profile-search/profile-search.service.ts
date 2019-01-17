@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { BehaviorSubject, Subject, interval, Observable } from 'rxjs';
-import { shareReplay, tap, take, pluck } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 export interface ProfileInfo {
   login: string
@@ -24,16 +24,15 @@ export class ProfileSearchService {
     this.profile.subscribe(({ repos_url }) => {
       if (repos_url) {
         // http request, set repoFetch to return value
-        this.http.get(repos_url).pipe(
-          tap(repos => this.repos.next(repos as any[]))
-        ).subscribe();;
+        this.http.get(repos_url).subscribe(this.repos);
       }
     });
   }
 
-  search (packageName: string): Observable<ProfileInfo> {
-    const searchReturn = this.http.get(searchUrl + packageName) as Observable<ProfileInfo>;
-    return searchReturn;
+  search(username: string) {
+    this.http.get(searchUrl + username).pipe(
+      tap((result: ProfileInfo) => this.profile.next(result))
+    ).subscribe();
   }
 
 }

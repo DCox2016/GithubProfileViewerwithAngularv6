@@ -1,43 +1,9 @@
-.flex-container {
-    display: flex;
-    align-items: stretch;
-  }
-  .search-box {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    background-color: grey;
-    width:25%;
-    border-style: outset;
-    border-color: green;
-  }
-  .profile-info{
-    align-content: center;
-    margin: 0% 5% 5%;
-  }
-  .repo-list{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 100%;
-  }
-  .repo-list li{
+.profileInfo {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-    border-style: double;
-    background-color: whitesmoke;
-    margin: 4%;
-    box-shadow: 6px 5px 3px lightgrey;
-  }
- h1 {
-    border-style: double;
- }
- div.search-box {
-     padding-bottom: 15%;
- }
- 
+    justify-content: start;
+    align-items: start;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}
