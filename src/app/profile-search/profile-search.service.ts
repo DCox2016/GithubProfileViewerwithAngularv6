@@ -24,7 +24,9 @@ export class ProfileSearchService {
     this.profile.subscribe(({ repos_url }) => {
       if (repos_url) {
         // http request, set repoFetch to return value
-        this.http.get(repos_url).subscribe(this.repos);
+        this.http.get(repos_url).pipe(
+          tap((result: any) => this.repos.next(result))
+        ).subscribe();
       }
     });
   }

@@ -8,7 +8,6 @@ import { MessageService }       from './message.service';
 import { ProfileImageComponent } from './profile-image/profile-image.component';
 import { HeaderComponent } from './common/header.component';
 import { FooterComponent } from './common/footer.component';
-import { ProfileSearchService } from './profile-search/profile-search.service';
 import { ShowProfileComponent } from './profile-show/profile-show.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
 
