@@ -9,7 +9,7 @@ import { ProfileSearchService  } from './profile-search.service';
   <div class="searchBox">
   <h1>Profile Search</h1>
   <input #box (keyup.enter)="search(box.value)">
-  <ghv-app-messages></ghv-app-messages>
+  {{error}}
   </div>
   <ghv-profile-show></ghv-profile-show>
   </div>
