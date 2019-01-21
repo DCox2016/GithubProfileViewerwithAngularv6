@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { tap } from 'rxjs/operators';
+
 
 export interface ProfileInfo {
   login: string
@@ -16,16 +18,16 @@ export const searchUrl = 'https://api.github.com/users/';
   providedIn: 'root'
 })
 export class ProfileSearchService {
-  profile: BehaviorSubject<ProfileInfo> = new BehaviorSubject({ login: '', name: '', avatar_url: '', repos_url: '' });
-  repos: BehaviorSubject<any[]> = new BehaviorSubject([]);
+  profile$: BehaviorSubject<ProfileInfo> = new BehaviorSubject({ login: '', name: '', avatar_url: '', repos_url: '' });
+  repos$: BehaviorSubject<any[]> = new BehaviorSubject([]);
  
- 
-  constructor(private http: HttpClient) {
-    this.profile.subscribe(({ repos_url }) => {
+  constructor(private http: HttpClient,
+   ) {
+    this.profile$.subscribe(({ repos_url }) => {
       if (repos_url) {
         // http request, set repoFetch to return value
         this.http.get(repos_url).pipe(
-          tap((result: any) => this.repos.next(result))
+          tap((result: any) => this.repos$.next(result))
         ).subscribe();
       }
     });
@@ -33,8 +35,9 @@ export class ProfileSearchService {
 
   search(username: string) {
     this.http.get(searchUrl + username).pipe(
-      tap((result: ProfileInfo) => this.profile.next(result))
-    ).subscribe();
+      tap((result: ProfileInfo) => this.profile$.next(result)),
+    ).subscribe({
+      error(error) {console.log('Error: ' + error.status + ' ' + error.error.message );}
+    });
   }
-
 }

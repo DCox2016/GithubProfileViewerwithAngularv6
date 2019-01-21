@@ -11,8 +11,8 @@ import { ProfileSearchService } from '../profile-search/profile-search.service';
 
 
 export class ShowProfileComponent {
-  profile$ = this.searchService.profile;
-  repos$ = this.searchService.repos;
+  profile$ = this.searchService.profile$;
+  repos$ = this.searchService.repos$;
  
   constructor(private searchService: ProfileSearchService) {}
 

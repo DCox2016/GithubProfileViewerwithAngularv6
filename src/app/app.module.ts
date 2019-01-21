@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HttpErrorHandler }     from './error-handler.service';
 import { MessageService }       from './message.service';
 import { ProfileImageComponent } from './profile-image/profile-image.component';
 import { HeaderComponent } from './common/header.component';
@@ -19,14 +18,13 @@ import { ProfileSearchComponent } from './profile-search/profile-search.componen
     FooterComponent,
     ProfileImageComponent,
     ShowProfileComponent,
-    ProfileSearchComponent
+    ProfileSearchComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
   providers: [
-    HttpErrorHandler,
     MessageService,
   ],
   bootstrap: [AppComponent]
