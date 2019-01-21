@@ -5,36 +5,30 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HttpErrorHandler }     from './error-handler.service';
 import { MessageService }       from './message.service';
-import { MessagesComponent }    from './messages/messages.component';
-import { ProfileSearchComponent } from './profile-search/profile-search.component';
 import { ProfileImageComponent } from './profile-image/profile-image.component';
 import { HeaderComponent } from './common/header.component';
 import { FooterComponent } from './common/footer.component';
-import { PackageSearchService } from './profile-search/profile-search.service';
-import { UsersRepoComponent } from './repo-list/repo-list.component';
-import { RepoListComponent } from './repo-list/repo-list.services';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { ShowProfileComponent } from './profile-show/profile-show.component';
+import { ProfileSearchComponent } from './profile-search/profile-search.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileSearchComponent,
-    MessagesComponent,
     HeaderComponent,
     FooterComponent,
     ProfileImageComponent,
-    UsersRepoComponent
+    ShowProfileComponent,
+    ProfileSearchComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [HttpErrorHandler,
+  providers: [
+    HttpErrorHandler,
     MessageService,
-    PackageSearchService,
-    RepoListComponent],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

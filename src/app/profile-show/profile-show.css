@@ -1,0 +1,9 @@
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}

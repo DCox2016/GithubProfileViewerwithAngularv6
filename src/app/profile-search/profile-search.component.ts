@@ -1,47 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ProfileSearchService  } from './profile-search.service';
 
-import { Subject, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-
-import { PackageSearchService } from './profile-search.service';
 
 @Component({
-  selector: 'profile-search',
-  templateUrl: './profile-search.component.html',
-  providers: [ PackageSearchService ],
-  styleUrls: ['./profile-search.component.css']
+  selector: 'ghv-profile-search',
+  template:`
+  <div class="container">
+  <div class="searchBox">
+  <h1>Profile Search</h1>
+  <input #box (keyup.enter)="search(box.value)">
+  </div>
+  <ghv-profile-show></ghv-profile-show>
+  </div>
+  `,
+  styleUrls: ['./profile-search.css']
 })
 
+export class ProfileSearchComponent { 
+  constructor(private service: ProfileSearchService) {}
 
-export class ProfileSearchComponent implements OnInit {
-  withRefresh = false;
-  user: any;
-  repoUrl: string;
-  private searchText$ = new Subject<string>();
- 
-  search(packageName: string) {
-    this.searchText$.next(packageName);
-  }
+  search (username: string) {
+    this.service.search(username);
+  };
 
-
-  ngOnInit() {
-    this.searchText$.pipe(
-      debounceTime(1000),
-      distinctUntilChanged(),
-      switchMap(packageName =>
-        this.searchService.search(packageName, this.withRefresh)
-      )
-      ).subscribe(
-        user => this.user = user
-      );
-    }
-
-  constructor(
-    private searchService: PackageSearchService) {
-   }
-
-
-  toggleRefresh() { this.withRefresh = ! this.withRefresh; }
 }
-
-

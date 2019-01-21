@@ -1,0 +1,13 @@
+<div class="profileInfo">
+    <div class="userInfo">
+        <h2>User's name: {{ (profile$ | async)?.name }}</h2>
+        <h2>User's login: {{ (profile$ | async)?.login}}</h2>
+        <profile-image [src]="(profile$ | async)?.avatar_url"></profile-image>
+    </div>
+    <h2>User's Repo</h2>
+    <div *ngFor="let repo of repos$ | async">
+        <h3>Name: {{ repo.name }} </h3>
+        <p>Language: {{repo.language}}</p>
+        <a [href]="repo.html_url">{{repo.html_url}}</a>
+    </div>
+</div>
