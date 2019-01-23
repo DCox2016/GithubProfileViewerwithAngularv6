@@ -6,14 +6,19 @@ import { ProfileSearchService  } from './profile-search.service';
   selector: 'ghv-profile-search',
   template:`
   <div class="container">
+  <div class="gitLogo">
+  <img width="100%" alit="Octocat" src="https://github.com/fluidicon.png">
+  </div>
   <div class="searchBox">
   <h2>Profile Search</h2>
   <input #box (keyup.enter)="search(box.value)">
+  </div>
+  <div class="welcome">
   <p>Welcome to Github profile viewer.<br>
   To get started just enter the user's profile name.</p>
   </div>
-  <ghv-profile-show></ghv-profile-show>
   </div>
+  <ghv-profile-show></ghv-profile-show>
   `,
   styleUrls: ['./profile-search.css']
 })

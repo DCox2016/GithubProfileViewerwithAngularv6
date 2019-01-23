@@ -1,6 +1,6 @@
 .footer {
-    background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 44%, rgba(55,111,63,1) 67%);
+    background-image: url("background.jpg");
+    background-color: black;
     color: lawngreen;
     text-align: center;
     border-style: outset;
