@@ -1,9 +1,10 @@
 .userInfo {
-    width: 100%;
     display: grid;
     grid-column-start: 1;
     grid-column-end: 3; 
     padding-top: 2%;
+    grid-template-columns: 20% 20%;
+    padding-left: 6%;
 } 
 
 .userImage {
@@ -12,20 +13,20 @@
 }
 
 .userName {
-    grid-column-start: 3;
-    grid-column-end: 3; 
+    grid-column-start: 1;
+    grid-column-end: 1; 
+    padding-right: 5%;
 }
 
 .userInfo h2 { 
     color: black;
-    text-shadow: 8px 5px 5px grey;
 }
 
 .repo {
     display: inline-grid;
     border-style: ridge;
     grid-template-columns: 50% 50%;
-    margin: 5% 5%;
+    margin: 1% 5% 5%;
 }
 .repo:empty{
     display: none;

@@ -2,22 +2,27 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    display: flex;
-    background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 44%, rgba(55,111,63,1) 67%);
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-template-columns: 5% 50%; 
+    background-image: url("background.jpg");
     border-style: outset;
     border-color: black;
 }
-div.header {
-    width: 20%;
+.header {
+    width: 100%;
     margin-top: 10px;
     font-size: 3em;
-    text-align: center;
-    flex-shrink: 1;
+    flex-direction: flex-start;
+    grid-column-start: 1;
+    grid-column-end: 1;
 }
-div.title {
-    flex-shrink: 1;
+.title {
     color: lawngreen;
+    flex-direction: flex-start;
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
 
 
