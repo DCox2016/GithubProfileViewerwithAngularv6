@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { BehaviorSubject, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 
@@ -37,7 +36,8 @@ export class ProfileSearchService {
     this.http.get(searchUrl + username).pipe(
       tap((result: ProfileInfo) => this.profile$.next(result)),
     ).subscribe({
-      error(error) {console.log('Error: ' + error.status + ' ' + error.error.message );}
+      error(error) {window.alert('Error: ' + error.status + ' ' + error.error.message );}
     });
   }
+
 }

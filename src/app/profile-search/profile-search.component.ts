@@ -7,9 +7,10 @@ import { ProfileSearchService  } from './profile-search.service';
   template:`
   <div class="container">
   <div class="searchBox">
-  <h1>Profile Search</h1>
+  <h2>Profile Search</h2>
   <input #box (keyup.enter)="search(box.value)">
-  {{error}}
+  <p>Welcome to Github profile viewer.<br>
+  To get started just enter the user's profile name.</p>
   </div>
   <ghv-profile-show></ghv-profile-show>
   </div>

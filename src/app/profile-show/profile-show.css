@@ -1,9 +1,40 @@
-.profileInfo {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: start;
-    align-items: start;
-    padding-left: 5%;
-    padding-bottom: 5%;
+.userInfo {
+    width: 100%;
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3; 
+    padding-top: 2%;
+} 
+
+.userImage {
+    grid-column-start: 2;
+    grid-column-end: 2; 
+}
+
+.userName {
+    grid-column-start: 3;
+    grid-column-end: 3; 
+}
+
+.userInfo h2 { 
+    color: black;
+    text-shadow: 8px 5px 5px grey;
+}
+
+.repo {
+    display: inline-grid;
+    border-style: ridge;
+    grid-template-columns: 50% 50%;
+    margin: 5% 5%;
+}
+.repo:empty{
+    display: none;
+}
+
+.repoList {
+    word-wrap: break-word;
+    padding: 2%;
+}
+.profile-image:empty{
+    display: none;
 }
