@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Pipe, PipeTransform } from '@angular/core';
 import { ProfileSearchService } from '../profile-search/profile-search.service';
 
 
@@ -8,7 +8,6 @@ import { ProfileSearchService } from '../profile-search/profile-search.service';
   templateUrl: './profile-show.html',
   styleUrls: ['./profile-show.css']
 })
-
 
 export class ShowProfileComponent {
   profile$ = this.searchService.profile$;

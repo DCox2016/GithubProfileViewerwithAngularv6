@@ -13,10 +13,6 @@ import { ProfileSearchService  } from './profile-search.service';
   <h2>Profile Search</h2>
   <input #box (keyup.enter)="search(box.value)">
   </div>
-  <div class="welcome">
-  <p>Welcome to Github profile viewer.<br>
-  To get started just enter the user's profile name.</p>
-  </div>
   </div>
   <ghv-profile-show></ghv-profile-show>
   `,

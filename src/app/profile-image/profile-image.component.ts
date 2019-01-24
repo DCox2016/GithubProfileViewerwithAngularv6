@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'profile-image',
     template: `
     <div class="userImage">
-        <img src={{src}}>
+        <img width="100%" src={{src}}>
         </div>
     `,
     styleUrls: ['./profile-image.component.css']
