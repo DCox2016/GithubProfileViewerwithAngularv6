@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { MessageService }       from './message.service';
+import { MessageService } from './message.service';
 import { ProfileImageComponent } from './profile-image/profile-image.component';
 import { HeaderComponent } from './common/header.component';
 import { FooterComponent } from './common/footer.component';

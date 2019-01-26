@@ -54,7 +54,7 @@ profile-image {
     margin: 0%;
     background-color: #E0E0E0;
 }
-.repo:empty{
+.repo:empty {
     display: none;
 }
 
@@ -67,6 +67,6 @@ profile-image {
 }
    
 
-.profile-image:empty{
+.profile-image:empty {
     display: none;
 }

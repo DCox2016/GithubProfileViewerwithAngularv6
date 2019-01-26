@@ -4,8 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## To run GithubProfileViewer
 
-In terminal navigate inside of the root folder, run command `npm init`. `Npm init` will create the package.json file.
-Once the package.json file is created, run `npm start`. `Npm start` will start the web app. To view app, open web 
+In terminal navigate inside of the root folder, run command `npm start` will start the web app. To view app, open web 
 browser and navigate to `http://localhost:4200/`. 
 
 ## How to use the GitHubProfileViewer

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ProfileSearchService  } from './profile-search.service';
+import { ProfileSearchService } from './profile-search.service';
 
 
 @Component({
   selector: 'ghv-profile-search',
-  template:`
+  template: `
   <div class="container">
   <div class="gitLogo">
   <img width="100%" alit="Octocat" src="https://github.com/fluidicon.png">
@@ -19,10 +19,10 @@ import { ProfileSearchService  } from './profile-search.service';
   styleUrls: ['./profile-search.css']
 })
 
-export class ProfileSearchComponent { 
-  constructor(private service: ProfileSearchService) {}
+export class ProfileSearchComponent {
+  constructor(private service: ProfileSearchService) { }
 
-  search (username: string) {
+  search(username: string) {
     this.service.search(username);
   };
 

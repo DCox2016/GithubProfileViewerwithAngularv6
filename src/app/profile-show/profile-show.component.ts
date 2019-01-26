@@ -1,4 +1,4 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProfileSearchService } from '../profile-search/profile-search.service';
 
 
@@ -12,7 +12,7 @@ import { ProfileSearchService } from '../profile-search/profile-search.service';
 export class ShowProfileComponent {
   profile$ = this.searchService.profile$;
   repos$ = this.searchService.repos$;
- 
-  constructor(private searchService: ProfileSearchService) {}
+
+  constructor(private searchService: ProfileSearchService) { }
 
 }
