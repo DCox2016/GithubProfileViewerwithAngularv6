@@ -1,9 +1,72 @@
-.profileInfo {
+.userInfo {
+    padding-top: 2%;
+    padding-left: 6%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+} 
+
+.welcome {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
     padding-left: 5%;
-    padding-bottom: 5%;
+}
+
+profile-image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start; 
+}
+
+.userName {
+    padding-right: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 20%;
+}
+
+.userInfo h2 { 
+    color: black;
+}
+
+.repo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    border-style: ridge;
+    margin: 0%;
+    background-color: #E0E0E0;
+}
+.repo:empty {
+    display: none;
+}
+
+.repoList {
+    width: 310px;
+    word-wrap: break-word;
+    border-style: ridge;
+    background-color: white;
+    padding: 1%;
+}
+   
+
+.profile-image:empty {
+    display: none;
 }

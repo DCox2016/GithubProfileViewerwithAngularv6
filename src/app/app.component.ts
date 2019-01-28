@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   showSearch = true;
 
- 
+
   toggleSearch() { this.showSearch = !this.showSearch; }
 }

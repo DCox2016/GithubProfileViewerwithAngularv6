@@ -9,11 +9,10 @@ import { ProfileSearchService } from '../profile-search/profile-search.service';
   styleUrls: ['./profile-show.css']
 })
 
-
 export class ShowProfileComponent {
   profile$ = this.searchService.profile$;
   repos$ = this.searchService.repos$;
- 
-  constructor(private searchService: ProfileSearchService) {}
+
+  constructor(private searchService: ProfileSearchService) { }
 
 }

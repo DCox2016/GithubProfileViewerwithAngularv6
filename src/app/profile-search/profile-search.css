@@ -1,12 +1,39 @@
 .container {
+    background-color: gray;
+    margin-top: 0%;
+    border-left: solid;
+    border-right: solid;
+    border-bottom: solid;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    background-image: url("../common/background.jpg");
+    border-style: outset;
+    border-color: black;
+}
+.gitLogo {
+    padding-left: 1%;
+    width: 5%;
+}
+.searchBox {
+    margin: 0%;
+    width: 20%;
+}
+h2 {
+    color: lawngreen;
+}
+p {
+        color: white;
 }
 
-.searchBox {
-    background-color: grey;
-    border-style: outset;
-    border-color: green;
-    width: 20%;
-    padding-left: 2%;
+h2 {
+    margin: 0%;
+    padding: 2px;
+}
+
+input {
+    margin-left: 2%;
 }
